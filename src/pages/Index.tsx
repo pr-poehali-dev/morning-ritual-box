@@ -114,58 +114,103 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal-dark to-charcoal-dark" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent" />
+        
         <div className="relative container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">
-              <div className="space-y-4">
-                <Badge className="bg-gold/10 text-gold border-gold/20 px-4 py-2 text-sm font-heading">
-                  🌿 НОВАЯ ПОДПИСКА
-                </Badge>
+              <div className="space-y-6">
+                <div className="flex items-center space-x-3">
+                  <Badge className="bg-gold/10 text-gold border-gold/20 px-4 py-2 text-sm font-heading">
+                    🔥 ЭКСКЛЮЗИВНО
+                  </Badge>
+                  <div className="flex items-center space-x-1 text-gold">
+                    {[...Array(5)].map((_, i) => (
+                      <Icon key={i} name="Star" className="h-4 w-4 fill-current" />
+                    ))}
+                    <span className="text-sm font-body ml-2">4.9 (2,847 отзывов)</span>
+                  </div>
+                </div>
+                
                 <h1 className="text-5xl lg:text-7xl font-heading font-bold text-foreground leading-tight">
-                  7 завтраков
-                  <span className="text-gold block">+ смузи-шот</span>
+                  Утренний ритуал
+                  <span className="text-gold block">премиум-класса</span>
                 </h1>
-                <p className="text-xl text-muted-foreground font-body leading-relaxed">
-                  Твой утренний ритуал энергии и красоты на неделю. 
-                  Готовая система питания, которая сочетает вкус, лёгкость и пользу.
-                </p>
+                
+                <div className="space-y-4">
+                  <p className="text-xl text-foreground font-body leading-relaxed font-medium">
+                    7 завтраков + смузи-шот каждый день
+                  </p>
+                  <p className="text-lg text-muted-foreground font-body leading-relaxed">
+                    Не просто завтраки — готовая система утреннего питания, 
+                    которая превращает каждое утро в момент роскоши и заботы о себе.
+                  </p>
+                </div>
+                
+                <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-6 border border-gold/20">
+                  <h3 className="text-gold font-heading font-semibold mb-3 text-lg">
+                    Что получаешь каждый день:
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="bg-gold/20 rounded-full p-2">
+                        <Icon name="Coffee" className="h-5 w-5 text-gold" />
+                      </div>
+                      <div>
+                        <p className="text-foreground font-body font-semibold">Завтрак</p>
+                        <p className="text-muted-foreground text-sm font-body">Новый каждый день</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="bg-gold/20 rounded-full p-2">
+                        <Icon name="Zap" className="h-5 w-5 text-gold" />
+                      </div>
+                      <div>
+                        <p className="text-foreground font-body font-semibold">Смузи-шот</p>
+                        <p className="text-muted-foreground text-sm font-body">Витаминный заряд</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center space-x-2 text-muted-foreground">
-                  <Icon name="Clock" className="text-gold h-5 w-5" />
-                  <span className="font-body">Экономия времени</span>
+              <div className="flex flex-wrap gap-6">
+                <div className="flex items-center space-x-3 bg-charcoal/50 rounded-xl px-4 py-3 border border-charcoal-light">
+                  <Icon name="Clock" className="text-gold h-6 w-6" />
+                  <div>
+                    <p className="text-foreground font-body font-semibold">0 минут готовки</p>
+                    <p className="text-muted-foreground text-sm font-body">Просто открой и ешь</p>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2 text-muted-foreground">
-                  <Icon name="Heart" className="text-gold h-5 w-5" />
-                  <span className="font-body">Польза и вкус</span>
-                </div>
-                <div className="flex items-center space-x-2 text-muted-foreground">
-                  <Icon name="Sparkles" className="text-gold h-5 w-5" />
-                  <span className="font-body">Премиум качество</span>
+                <div className="flex items-center space-x-3 bg-charcoal/50 rounded-xl px-4 py-3 border border-charcoal-light">
+                  <Icon name="Truck" className="text-gold h-6 w-6" />
+                  <div>
+                    <p className="text-foreground font-body font-semibold">Бесплатная доставка</p>
+                    <p className="text-muted-foreground text-sm font-body">По всей Москве</p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-gold hover:bg-gold-dark text-charcoal-dark font-heading font-semibold text-lg px-8 py-4">
-                  <Icon name="ShoppingCart" className="mr-2 h-5 w-5" />
-                  Оформить подписку
-                </Button>
-                <Button size="lg" variant="outline" className="border-gold text-gold hover:bg-gold hover:text-charcoal-dark font-heading font-semibold text-lg px-8 py-4">
-                  <Icon name="Play" className="mr-2 h-5 w-5" />
-                  Смотреть видео
-                </Button>
-              </div>
-              
-              <div className="bg-charcoal/50 rounded-xl p-6 border border-charcoal">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-2xl font-heading font-bold text-gold">2 490 ₽</p>
-                    <p className="text-muted-foreground font-body">за неделю</p>
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" className="bg-gold hover:bg-gold-dark text-charcoal-dark font-heading font-bold text-lg px-10 py-6 shadow-xl shadow-gold/20">
+                    <Icon name="Crown" className="mr-3 h-6 w-6" />
+                    Начать с 2 490 ₽
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-gold text-gold hover:bg-gold/10 font-heading font-semibold text-lg px-10 py-6">
+                    <Icon name="Play" className="mr-3 h-6 w-6" />
+                    Как это работает
+                  </Button>
+                </div>
+                
+                <div className="flex items-center space-x-6 text-muted-foreground font-body text-sm">
+                  <div className="flex items-center space-x-2">
+                    <Icon name="Shield" className="h-4 w-4 text-gold" />
+                    <span>Отмена в любой момент</span>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm text-muted-foreground font-body">≈356 ₽ за день</p>
-                    <p className="text-sm text-gold font-body">🚚 Доставка включена</p>
+                  <div className="flex items-center space-x-2">
+                    <Icon name="RefreshCw" className="h-4 w-4 text-gold" />
+                    <span>Возврат 100%</span>
                   </div>
                 </div>
               </div>
@@ -176,26 +221,232 @@ const Index = () => {
                 <img 
                   src="/img/1216a78a-3738-463e-81be-d19d85ee27e8.jpg" 
                   alt="Premium breakfast" 
-                  className="w-full h-[600px] object-cover rounded-2xl shadow-2xl"
+                  className="w-full h-[650px] object-cover rounded-2xl shadow-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-dark/60 via-transparent to-transparent rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-dark/80 via-transparent to-gold/10 rounded-2xl" />
+                
+                <div className="absolute top-6 left-6 right-6">
+                  <div className="flex justify-between items-start">
+                    <Badge className="bg-gold text-charcoal-dark font-heading font-bold px-4 py-2">
+                      ДЕНЬ 1 из 7
+                    </Badge>
+                    <div className="bg-charcoal-dark/80 backdrop-blur-sm rounded-full px-4 py-2">
+                      <div className="flex items-center space-x-2 text-gold">
+                        <Icon name="Heart" className="h-5 w-5 fill-current" />
+                        <span className="font-body text-sm font-semibold">4.9</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
                 <div className="absolute bottom-6 left-6 right-6">
-                  <Badge className="bg-gold text-charcoal-dark font-heading font-semibold mb-3">
-                    День 1
-                  </Badge>
-                  <h3 className="text-white text-xl font-heading font-semibold mb-2">
-                    Трюфельный омлет Black Chef
-                  </h3>
-                  <p className="text-white/80 font-body">
-                    + Immunity Shot (манго, апельсин, имбирь)
-                  </p>
+                  <div className="bg-charcoal-dark/80 backdrop-blur-sm rounded-xl p-4 border border-gold/20">
+                    <h3 className="text-white text-xl font-heading font-bold mb-2">
+                      Трюфельный омлет Black Chef
+                    </h3>
+                    <p className="text-white/90 font-body mb-3">
+                      Нежнейший омлет с трюфельной пастой + Immunity Shot
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4 text-sm">
+                        <span className="text-gold font-body">420 ккал</span>
+                        <span className="text-white/70 font-body">18г белка</span>
+                      </div>
+                      <Badge variant="secondary" className="bg-gold/20 text-gold border-gold/20">
+                        ≈ 356 ₽
+                      </Badge>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              <div className="absolute -top-4 -right-4 bg-gold text-charcoal-dark rounded-full p-4">
-                <Icon name="Sparkles" className="h-8 w-8" />
+              <div className="absolute -top-6 -right-6 bg-gradient-to-br from-gold to-gold-dark rounded-2xl p-6 shadow-xl shadow-gold/30">
+                <div className="text-center text-charcoal-dark">
+                  <Icon name="Sparkles" className="h-8 w-8 mx-auto mb-2" />
+                  <p className="font-heading font-bold text-sm">ПРЕМИУМ</p>
+                </div>
+              </div>
+              
+              <div className="absolute -bottom-6 -left-6 bg-charcoal border border-gold/20 rounded-2xl p-4 shadow-xl">
+                <div className="flex items-center space-x-3">
+                  <img 
+                    src="/img/2d017015-94e8-46fd-b1e9-5b37e46f094b.jpg" 
+                    alt="Smoothie shots"
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="text-gold font-heading font-semibold text-sm">+7 смузи-шотов</p>
+                    <p className="text-muted-foreground font-body text-xs">В подарок к завтракам</p>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Proof & Benefits Section */}
+      <section className="py-20 bg-gradient-to-br from-charcoal to-charcoal-dark">
+        <div className="container mx-auto px-6">
+          {/* Social Proof Stats */}
+          <div className="grid md:grid-cols-4 gap-8 mb-20">
+            {[
+              {
+                number: "2,847",
+                label: "Довольных клиентов",
+                icon: "Users"
+              },
+              {
+                number: "19,929",
+                label: "Завтраков доставлено",
+                icon: "Truck"
+              },
+              {
+                number: "4.9",
+                label: "Средняя оценка",
+                icon: "Star"
+              },
+              {
+                number: "98%",
+                label: "Продлевают подписку",
+                icon: "RefreshCw"
+              }
+            ].map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="bg-charcoal-light/50 rounded-2xl p-8 border border-charcoal-light group-hover:border-gold/50 transition-all duration-300">
+                  <Icon name={stat.icon as any} className="h-12 w-12 text-gold mx-auto mb-4" />
+                  <h3 className="text-3xl font-heading font-bold text-foreground mb-2">
+                    {stat.number}
+                  </h3>
+                  <p className="text-muted-foreground font-body text-sm">
+                    {stat.label}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Why Choose Us */}
+          <div className="text-center mb-16">
+            <Badge className="bg-gold/10 text-gold border-gold/20 px-4 py-2 text-sm font-heading mb-4">
+              ПОЧЕМУ ВЫБИРАЮТ НАС
+            </Badge>
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6">
+              Больше чем просто <span className="text-gold">завтраки</span>
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "Clock",
+                title: "Экономия 2 часов каждое утро",
+                description: "Не нужно думать что приготовить, покупать продукты и стоять у плиты. Просто открываешь контейнер — и готово!",
+                benefit: "Больше времени на себя"
+              },
+              {
+                icon: "Heart",
+                title: "Здоровье без компромиссов",
+                description: "Каждый завтрак сбалансирован по БЖУ, витаминам и микроэлементам. Плюс витаминный смузи-шот для иммунитета.",
+                benefit: "Энергия на весь день"
+              },
+              {
+                icon: "Sparkles",
+                title: "Премиальный уровень сервиса",
+                description: "От отборных продуктов до стильной подачи. Каждая деталь продумана для твоего комфорта и удовольствия.",
+                benefit: "Чувство роскоши каждый день"
+              }
+            ].map((item, index) => (
+              <Card key={index} className="bg-charcoal border-charcoal-light hover:border-gold/50 transition-all duration-300 group">
+                <CardContent className="p-8 text-center">
+                  <div className="bg-gold/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors">
+                    <Icon name={item.icon as any} className="h-10 w-10 text-gold" />
+                  </div>
+                  <h3 className="text-xl font-heading font-bold text-foreground mb-4 group-hover:text-gold transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground font-body leading-relaxed mb-4">
+                    {item.description}
+                  </p>
+                  <Badge variant="secondary" className="bg-gold/10 text-gold border-gold/20">
+                    {item.benefit}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Stories */}
+      <section className="py-20 bg-charcoal/20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6">
+              Истории наших <span className="text-gold">клиентов</span>
+            </h2>
+            <p className="text-xl text-muted-foreground font-body max-w-3xl mx-auto">
+              Узнайте, как Black Chef изменил утренние ритуалы тысяч людей
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Анна Кузнецова",
+                role: "Предприниматель",
+                story: "«Раньше я пропускала завтраки из-за нехватки времени. Теперь каждое утро начинается с удовольствия и энергии на весь день.»",
+                result: "Потеряла 5 кг за месяц",
+                rating: 5,
+                avatar: "👩‍💼"
+              },
+              {
+                name: "Михаил Петров",
+                role: "IT-директор",
+                story: "«Black Chef превратил мои хаотичные утра в спокойный ритуал. Качество ингредиентов и подача на высшем уровне.»",
+                result: "Улучшил концентрацию",
+                rating: 5,
+                avatar: "👨‍💻"
+              },
+              {
+                name: "Елена Смирнова",
+                role: "Мама двоих детей",
+                story: "«Теперь у меня есть время позавтракать вместе с детьми, не бегая по кухне. Они тоже в восторге от смузи-шотов!»",
+                result: "Больше времени с семьёй",
+                rating: 5,
+                avatar: "👩‍👧‍👦"
+              }
+            ].map((testimonial, index) => (
+              <Card key={index} className="bg-charcoal border-charcoal-light hover:border-gold/50 transition-all duration-300">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="text-4xl mr-4">{testimonial.avatar}</div>
+                    <div>
+                      <h4 className="text-lg font-heading font-bold text-foreground">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-muted-foreground font-body text-sm">
+                        {testimonial.role}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Icon key={i} name="Star" className="h-4 w-4 text-gold fill-current" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-foreground font-body leading-relaxed mb-4 italic">
+                    {testimonial.story}
+                  </p>
+                  
+                  <Badge className="bg-gold/10 text-gold border-gold/20">
+                    ✨ {testimonial.result}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
