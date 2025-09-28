@@ -94,6 +94,9 @@ const Index = () => {
               <a href="#menu" className="text-foreground hover:text-gold transition-colors font-body">
                 Меню
               </a>
+              <a href="#pricing" className="text-foreground hover:text-gold transition-colors font-body">
+                Тарифы
+              </a>
               <a href="#how-it-works" className="text-foreground hover:text-gold transition-colors font-body">
                 Как это работает
               </a>
@@ -269,6 +272,228 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 bg-charcoal/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16 animate-fade-in">
+            <Badge className="bg-gold/10 text-gold border-gold/20 px-4 py-2 text-sm font-heading mb-4">
+              ТАРИФЫ И УСЛОВИЯ
+            </Badge>
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6">
+              Выберите <span className="text-gold">свой план</span>
+            </h2>
+            <p className="text-xl text-muted-foreground font-body max-w-3xl mx-auto leading-relaxed">
+              Гибкие условия подписки для разных потребностей. Всегда можно изменить или приостановить.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Пробный",
+                period: "1 неделя",
+                price: "2 490",
+                oldPrice: null,
+                popular: false,
+                description: "Попробуйте Black Chef",
+                features: [
+                  "7 премиальных завтраков",
+                  "7 витаминных смузи-шотов",
+                  "Бесплатная доставка",
+                  "Стильная упаковка",
+                  "Можно отменить в любой момент"
+                ],
+                buttonText: "Попробовать",
+                savings: null
+              },
+              {
+                name: "Месячная",
+                period: "4 недели",
+                price: "8 960",
+                oldPrice: "9 960",
+                popular: true,
+                description: "Самый популярный",
+                features: [
+                  "28 премиальных завтраков",
+                  "28 витаминных смузи-шотов",
+                  "Приоритетная доставка",
+                  "Персональные рекомендации",
+                  "Скидка 10% на следующий месяц",
+                  "Гибкий график доставки"
+                ],
+                buttonText: "Оформить",
+                savings: "Экономия 1 000 ₽"
+              },
+              {
+                name: "Квартальная",
+                period: "12 недель",
+                price: "25 410",
+                oldPrice: "29 880",
+                popular: false,
+                description: "Максимальная выгода",
+                features: [
+                  "84 премиальных завтрака",
+                  "84 витаминных смузи-шота",
+                  "VIP-доставка в любое время",
+                  "Эксклюзивные блюда",
+                  "Персональный куратор",
+                  "Бонусные подарки каждый месяц",
+                  "Возможность заморозки подписки"
+                ],
+                buttonText: "Максимум выгоды",
+                savings: "Экономия 4 470 ₽"
+              }
+            ].map((plan, index) => (
+              <Card key={index} className={`relative overflow-hidden transition-all duration-300 hover:scale-105 ${
+                plan.popular 
+                  ? 'bg-gradient-to-br from-gold/5 to-gold/10 border-gold shadow-xl shadow-gold/20' 
+                  : 'bg-charcoal border-charcoal-light hover:border-gold/50'
+              }`}>
+                {plan.popular && (
+                  <div className="absolute -top-px left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-gold text-charcoal-dark font-heading font-semibold px-6 py-2">
+                      🔥 ПОПУЛЯРНЫЙ
+                    </Badge>
+                  </div>
+                )}
+                
+                <CardContent className="p-8 pt-12">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-heading font-bold text-foreground mb-2">
+                      {plan.name}
+                    </h3>
+                    <p className="text-muted-foreground font-body text-sm mb-4">
+                      {plan.description}
+                    </p>
+                    
+                    <div className="space-y-2">
+                      <div className="flex items-baseline justify-center space-x-2">
+                        <span className="text-4xl font-heading font-bold text-gold">
+                          {plan.price}
+                        </span>
+                        <span className="text-muted-foreground font-body">₽</span>
+                        {plan.oldPrice && (
+                          <span className="text-lg text-muted-foreground line-through font-body ml-2">
+                            {plan.oldPrice} ₽
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-muted-foreground font-body text-sm">
+                        {plan.period}
+                      </p>
+                      {plan.savings && (
+                        <Badge variant="secondary" className="bg-gold/10 text-gold border-gold/20">
+                          {plan.savings}
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start space-x-3">
+                        <Icon name="Check" className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
+                        <span className="text-muted-foreground font-body text-sm leading-relaxed">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button 
+                    className={`w-full font-heading font-semibold ${
+                      plan.popular
+                        ? 'bg-gold hover:bg-gold-dark text-charcoal-dark'
+                        : 'bg-charcoal-light hover:bg-gold hover:text-charcoal-dark text-foreground border border-charcoal-light'
+                    }`}
+                    size="lg"
+                  >
+                    {plan.buttonText}
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Terms and Conditions */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <Card className="bg-charcoal border-charcoal-light">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-6 text-center">
+                  Условия <span className="text-gold">подписки</span>
+                </h3>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-heading font-semibold text-gold mb-3 flex items-center">
+                        <Icon name="Truck" className="mr-2 h-5 w-5" />
+                        Доставка
+                      </h4>
+                      <ul className="space-y-2 text-muted-foreground font-body text-sm">
+                        <li>• Бесплатная доставка по Москве в пределах МКАД</li>
+                        <li>• Доставка за МКАД: +200 ₽ за каждые 10 км</li>
+                        <li>• Временные окна: 08:00-12:00, 15:00-20:00</li>
+                        <li>• Возможна доставка в выходные (+300 ₽)</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-heading font-semibold text-gold mb-3 flex items-center">
+                        <Icon name="RefreshCw" className="mr-2 h-5 w-5" />
+                        Изменения и отмена
+                      </h4>
+                      <ul className="space-y-2 text-muted-foreground font-body text-sm">
+                        <li>• Отмена до 18:00 воскресенья перед доставкой</li>
+                        <li>• Пропуск недели: за 48 часов до доставки</li>
+                        <li>• Изменение адреса: за 24 часа</li>
+                        <li>• Возврат средств в течение 3-5 рабочих дней</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-heading font-semibold text-gold mb-3 flex items-center">
+                        <Icon name="Shield" className="mr-2 h-5 w-5" />
+                        Качество и гарантии
+                      </h4>
+                      <ul className="space-y-2 text-muted-foreground font-body text-sm">
+                        <li>• Все блюда готовятся в день доставки</li>
+                        <li>• Срок годности: 2-3 дня в холодильнике</li>
+                        <li>• Возврат 100% при несоответствии качества</li>
+                        <li>• Поддержка клиентов 24/7</li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-heading font-semibold text-gold mb-3 flex items-center">
+                        <Icon name="CreditCard" className="mr-2 h-5 w-5" />
+                        Оплата
+                      </h4>
+                      <ul className="space-y-2 text-muted-foreground font-body text-sm">
+                        <li>• Банковские карты (Visa, MasterCard, МИР)</li>
+                        <li>• Apple Pay, Google Pay, Samsung Pay</li>
+                        <li>• Оплата при получении (+150 ₽)</li>
+                        <li>• Автоплатёж для регулярных подписок</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 pt-6 border-t border-charcoal-light text-center">
+                  <p className="text-muted-foreground font-body text-sm">
+                    Остались вопросы? Свяжитесь с нами по телефону{' '}
+                    <span className="text-gold">+7 (999) 123-45-67</span> или напишите на{' '}
+                    <span className="text-gold">hello@blackchef.ru</span>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
